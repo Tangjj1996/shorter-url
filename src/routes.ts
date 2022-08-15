@@ -1,4 +1,4 @@
-import { createShortUrl } from "./controller/shorturl.controller";
+import { createShortUrl, handleRedict } from "./controller/shorturl.controller";
 import type { Express, Request, Response } from "express";
 
 function routes(app: Express) {
@@ -7,6 +7,8 @@ function routes(app: Express) {
   });
 
   app.post("/api/url", createShortUrl);
+
+  app.get("/:shortId", handleRedict);
 }
 
 export default routes;

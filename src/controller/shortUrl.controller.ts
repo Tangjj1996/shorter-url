@@ -7,4 +7,18 @@ export async function createShortUrl(req: Request, res: Response) {
   // Create a shortUrl
   const shortURL = await shortUrl.create({ destination });
   // Return the shortUrl
+  res.send(shortURL);
+}
+
+export async function handleRedict(req: Request, res: Response) {
+  console.log(req, "++++++++++++++");
+  const { shortId } = req.params;
+
+  const short = await shortUrl.findOne({ shortId }).lean();
+
+  if (!short) {
+    return res.sendStatus(404);
+  }
+
+  res.redirect(short.destination);
 }
