@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
+import { customAlphabet } from "nanoid";
 import type { Document } from "mongoose";
 
-let nanoId;
-//(nanoId = pkg.default.customAlphabet("abcefghigklmnopqrstuv0987654321", 6)
+const nanoid = customAlphabet("abcefghigklmnopqrstuv0987654321", 6);
 
 export interface ShortURL extends Document {
   shortId: string;
@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
-    default: () => 1,
+    default: () => nanoid(),
   },
   destination: {
     type: String,
