@@ -4,6 +4,7 @@
     "target": "es5",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "outDir": "build"
   }
 }
