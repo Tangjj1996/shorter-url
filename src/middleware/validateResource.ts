@@ -11,8 +11,8 @@ const validateResource =
         params: req.params,
       });
       next();
-    } catch (e) {
-      res.sendStatus(401);
+    } catch (e: any) {
+      res.status(401).send(e.message);
     }
   };
 

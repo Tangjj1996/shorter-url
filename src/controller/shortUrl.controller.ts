@@ -30,3 +30,9 @@ export async function getAnalytics(req: Request, res: Response) {
 
   return res.send(data);
 }
+
+export async function handleAll(req: Request, res: Response) {
+  const data = await shortUrl.find({}).lean();
+
+  return res.send(data);
+}
