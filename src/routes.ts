@@ -1,14 +1,19 @@
-import { createShortUrl, handleRedict } from "./controller/shorturl.controller";
-import type { Express, Request, Response } from "express";
+import {
+  createShortUrl,
+  getAnalytics,
+  handleRedict,
+} from "./controller/shorturl.controller";
+import validateResource from "./middleware/validateResource";
+import createShortUrlSchema from "./schemas/createShortUrl.schema";
+
+import type { Express } from "express";
 
 function routes(app: Express) {
-  app.get("/healthcheck", (req: Request, res: Response) => {
-    res.send("app");
-  });
-
-  app.post("/api/url", createShortUrl);
+  app.post("/api/url", validateResource(createShortUrlSchema), createShortUrl);
 
   app.get("/:shortId", handleRedict);
+
+  app.get("/api/analytics", getAnalytics);
 }
 
 export default routes;
