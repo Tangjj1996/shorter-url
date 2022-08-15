@@ -6,5 +6,5 @@ const port = config.get<number>("port");
 const app = express();
 
 app.listen(port, () => {
-  console.log();
+  console.log(22);
 });
