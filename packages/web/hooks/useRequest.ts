@@ -1,11 +1,9 @@
 import { getFontDefinitionFromNetwork } from "next/dist/server/font-utils";
 import { useState, useEffect } from "react";
 
-let index = 0;
-
 export default function useRequest(
   fn: (...arg: any[]) => Promise<any>,
-  param?: number,
+  param = null,
 ) {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(false);
@@ -28,6 +26,5 @@ export default function useRequest(
     init();
   }, [param]);
 
-  console.log(index++);
   return [loading, error, data];
 }
