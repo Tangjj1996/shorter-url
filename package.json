@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "test": "turbo test"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
