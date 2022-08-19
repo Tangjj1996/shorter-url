@@ -1,4 +1,3 @@
-import { getFontDefinitionFromNetwork } from "next/dist/server/font-utils";
 import { useState, useEffect } from "react";
 
 export default function useRequest(

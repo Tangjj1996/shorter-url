@@ -2,8 +2,14 @@ import { ShortUrlDTO, ShortUrlAnalyticsDTO } from "shortUrl";
 
 const baseUrl = "http://localhost:3001";
 
-export function addShortUrl(parma) {
-  return fetch(`${baseUrl}/api/url`, parma)
+export function addShortUrl(parma): Promise<ShortUrlDTO> {
+  return fetch(`${baseUrl}/api/url`, {
+    body: JSON.stringify(parma),
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
     .then(res => res.json())
     .then(res => res);
 }
